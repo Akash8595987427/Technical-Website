@@ -25,12 +25,12 @@ const Search = () => {
                     {
                         hits.map((obj)=>{
                             return(
-                                <div className="container w-[60%] h-auto flex flex-col justify-center items-start bg-white py-8 px-12 gap-5 text-sm shadow-md ">
+                                <div key={obj.objectID} className="container w-[60%] h-auto flex flex-col justify-center items-start bg-white py-8 px-12 gap-5 text-sm shadow-md ">
                                     <h1 className='text-2xl font-semibold'>{obj.title}</h1>
-                                    <p>By {obj.author} | {obj.num_comments} comments</p>
+                                    <p>By {obj.author} &nbsp;  | &nbsp;  {obj.num_comments} comments</p>
                                     <div className="info w-full flex justify-between items-center">
                                         <a href={obj.url}><p>Read More</p></a>
-                                        <p>Remove</p>
+                                        <p >Remove</p>
                                     </div>
                                      {console.log(hits)}
                                 </div> 
