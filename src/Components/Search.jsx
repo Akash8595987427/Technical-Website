@@ -4,7 +4,7 @@ import { useGlobalContext } from './context'
 
 
 const Search = () => {
-    const {hits, page, isLoading} = useGlobalContext();
+    const {hits, page, isLoading, removePost} = useGlobalContext();
 
 
     console.log(isLoading);
@@ -29,10 +29,10 @@ const Search = () => {
                                     <h1 className='text-2xl font-semibold'>{obj.title}</h1>
                                     <p>By {obj.author} &nbsp;  | &nbsp;  {obj.num_comments} comments</p>
                                     <div className="info w-full flex justify-between items-center">
-                                        <a href={obj.url}><p>Read More</p></a>
-                                        <p >Remove</p>
+                                        <a href={obj.url} target="_blank"><p>Read More</p></a>
+                                        <p onClick={()=>{removePost(obj.objectID)}} className='text-red-600 hover:cursor-pointer' >Remove</p>
                                     </div>
-                                     {console.log(hits)}
+                                     
                                 </div> 
                             )
                         })

@@ -8,7 +8,7 @@ const reducer = (state, action)=>{
         case "GET_LOADING" :
             return{
                 ...state,
-                isLoading : true
+                isLoading : true,
             }
 
         case "GET_API" : 
@@ -18,11 +18,25 @@ const reducer = (state, action)=>{
             page : action.payload.page_data,
             isLoading : false
         };
+
+        case "REMOVE_POST" :
+            return {
+                ...state,
+                hits : state.hits.filter((currElem)=>{
+                    return currElem.objectID !== action.payload;
+                })
+            };
+
+        case "SEARCH_POST" : 
+            return{
+                ...state,
+                query : action.payload,
+            };
     }
 
     return state;
 
-}
+};
 
 
 export default reducer;
